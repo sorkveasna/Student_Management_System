@@ -1,0 +1,13 @@
+<!--Index-->
+<template name="home">
+    {{#if currentUser}}
+        <h2>Welcome to Rabbit IT Solution</h2>
+        {{#if isInRole ''}}
+            <h2>You are new user. Please Contact to Admin user</h2>
+        {{/if}}
+    {{else}}
+        <h1>please log in</h1>
+    {{/if}}
+
+
+</template>

@@ -1,0 +1,28 @@
+.breadcrumb {
+    background: none;
+    float: right;
+    font-size: 14px;
+}
+
+.my-navbar{
+    color: #fff;
+    background-color: #337ab7;
+}
+
+.sys-logo{
+    background-color: #337ab7;
+    margin-top: 8px;
+    /*width: 160px;*/
+    height: 32px;
+}
+
+/*#my-dropdown{*/
+    /*color: white;*/
+/*}*/
+.navbar-default .navbar-nav > li > a {
+    color: #ffffff;
+}
+.my-navbar {
+    color: #fff;
+    background-color: #ff6d00;
+  }

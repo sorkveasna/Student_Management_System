@@ -1,0 +1,84 @@
+<!--Index-->
+<template name="register">
+    <p>
+        <button class="btn btn-primary fa fa-plus" id="js-insert"> Add</button>
+    </p>
+    {{> tabular table=TabularTables.Register class="table table-striped table-bordered table-condensed table-hover animated lightSpeedIn"}}
+</template>
+
+<!--Insert-->
+<template name="registerInsert">
+
+    {{#autoForm collection="Collection.Register" id="registerInsert" type="insert"}}
+        <fieldset>
+
+            <div class="row">
+                <div class="col-md-4">
+                    {{> afQuickField name='regDate'}}
+                    {{> afQuickField name='studentId' id="student-id" options=studentId}}
+                    {{> afQuickField name='studyDay'}}
+                    {{> afQuickField name='studyTime'}}
+                </div>
+                <div class="col-md-4">
+                    {{> afQuickField name='subjectId' options=subjectId}}
+                    {{> afQuickField name='price' id="price" value=price}}
+                    {{> afQuickField name='discount' id="discount"}}
+                    {{> afQuickField name='amount' id="amount"}}
+                </div>
+
+                <div class="col-md-4">
+                    {{> afQuickField name='teacherId' id="teacher-id" options=teacherId}}
+                    {{> afQuickField name='studentStatus'}}
+                    {{> afQuickField name='informedBy'}}
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary fa fa-save"> Insert</button>
+            <button type="reset" class="btn btn-default fa fa-refresh"> Reset</button>
+
+        </fieldset>
+    {{/autoForm}}
+
+</template>
+
+<!--Update-->
+<template name="registerUpdate">
+    {{#if Template.subscriptionsReady}}
+
+        {{#autoForm collection="Collection.Register" doc=this id="registerUpdate" type="update"}}
+            <fieldset>
+
+                <div class="row">
+                    <div class="col-md-4">
+                        {{> afQuickField name='regDate' disabled=true}}
+                        {{> afQuickField name='studentId' options=studentId disabled=true}}
+                        {{> afQuickField name='studyDay'}}
+                        {{> afQuickField name='studyTime'}}
+                    </div>
+                    <div class="col-md-4">
+                        {{> afQuickField name='subjectId' options=subjectId}}
+                        {{> afQuickField name='price'}}
+                        {{> afQuickField name='discount'}}
+                        {{> afQuickField name='amount'}}
+                    </div>
+
+                    <div class="col-md-4">
+                        {{> afQuickField name='teacherId' options=teacherId}}
+                        {{> afQuickField name='studentStatus'}}
+                        {{> afQuickField name='informedBy'}}
+                    </div>
+                </div>
+
+            </fieldset>
+            <button type="submit" class="btn btn-primary fa fa-save"> Update</button>
+        {{/autoForm}}
+
+    {{else}}
+        {{> spinner}}
+    {{/if}}
+</template>
+
+<!--Action-->
+<template name="registerAction">
+    {{>tabularAction}}
+</template>

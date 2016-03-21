@@ -1,0 +1,117 @@
+<!--Index-->
+<template name="student">
+    <p>
+        <button class="btn btn-primary fa fa-plus" id="js-insert"> Add</button>
+    </p>
+    {{> tabular table=TabularTables.Student class="table table-striped table-bordered table-condensed table-hover animated lightSpeedIn"}}
+</template>
+
+<!--Insert-->
+<template name="studentInsert">
+    {{#autoForm collection="Collection.Student" id="studentInsert" type="insert"}}
+        <fieldset>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Personal Details</h3>
+                        </div>
+                        <div class="panel-body">
+                            {{> afQuickField name='khmerName'}}
+                            {{> afQuickField name='latinName'}}
+                            {{> afQuickField name='gender'}}
+                            {{> afQuickField name='dob'}}
+                            {{> afQuickField name='telephone'}}
+                            {{> afQuickField name='maritalStatus'}}
+                            {{> afQuickField name='email'}}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    {{> afQuickField name='currentAddress'}}
+                </div>
+                <div class="col-md-4">
+                    {{> afQuickField name='emergencyContact'}}
+                    <button type="submit" class="btn btn-primary fa fa-save"> Insert</button>
+                    <button type="reset" class="btn btn-default fa fa-refresh"> Reset</button>
+                </div>
+
+            </div>
+        </fieldset>
+
+    {{/autoForm}}
+
+</template>
+
+<!--Update-->
+<template name="studentUpdate">
+    {{#if Template.subscriptionsReady}}
+
+        {{#autoForm collection="Collection.Student" doc=this id="studentUpdate" type="update"}}
+            <fieldset>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Personal Details</h3>
+                            </div>
+                            <div class="panel-body">
+                                {{> afQuickField name='khmerName'}}
+                                {{> afQuickField name='latinName'}}
+                                {{> afQuickField name='gender'}}
+                                {{> afQuickField name='dob'}}
+                                {{> afQuickField name='telephone'}}
+                                {{> afQuickField name='maritalStatus'}}
+                                {{> afQuickField name='email'}}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        {{> afQuickField name='currentAddress'}}
+                    </div>
+                    <div class="col-md-4">
+                        {{> afQuickField name='emergencyContact'}}
+                        <button type="submit" class="btn btn-primary fa fa-save"> Update</button>
+
+                    </div>
+
+                </div>
+            </fieldset>
+        {{/autoForm}}
+
+    {{else}}
+        {{> spinner}}
+    {{/if}}
+</template>
+
+
+<!--Show-->
+<template name="showStudent">
+    <dl class="dl-horizontal">
+        <dt>Id</dt>
+        <dd>{{_id}}</dd>
+        <dt>Khmer Name</dt>
+        <dd>{{khmerName}}</dd>
+        <dt>Latin Name</dt>
+        <dd>{{latinName}}</dd>
+        <dt>Gender</dt>
+        <dd>{{gender}}</dd>
+        <dt>Date Of Birth</dt>
+        <dd>{{dob}}</dd>
+        <dt>Telephone</dt>
+        <dd>{{telephone}}</dd>
+        <dt>Marital Status</dt>
+        <dd>{{maritalStatus}}</dd>
+        <dt>Email</dt>
+        <dd>{{email}}</dd>
+        <dt>Current Address</dt>
+        <dd>{{currentAddress}}</dd>
+    </dl>
+</template>
+
+<!--Action-->
+<template name="studentAction">
+    {{>tabularAction}}
+</template>

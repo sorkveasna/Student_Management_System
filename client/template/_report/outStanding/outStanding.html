@@ -1,0 +1,79 @@
+<!--Os Report-->
+<template name="outStandingRpt">
+    {{#autoForm schema="Schema.outStandingRpt" id="outStandingRpt"}}
+        <fieldset>
+            {{> afQuickField name='asAt'}}
+        </fieldset>
+        <button type="submit" class="btn btn-primary fa fa-file-text"> Generate Report</button>
+    {{/autoForm}}
+</template>
+
+<!--Os Report Generator-->
+<template name="outStandingRptGen">
+    <div style="width: 720px; height: auto; margin: auto; border: 1px solid darkgreen;">
+        <table width="100%">
+            <tr>
+                <th class="bg-danger">
+                    <h2 style="text-align: center">Rabbit IT Solution</h2>
+                </th>
+            </tr>
+            <tr>
+                <th class="bg-danger">
+                    <h3 style="text-align: center">Out Standing Report</h3>
+                </th>
+            </tr>
+        </table>
+
+        Date:
+        {{data.header.date}}
+        <table width="100%" border="1" class="table table-bordered">
+            <thead>
+            <tr class="bg-info">
+                <th class="text-center">No</th>
+                <th class="text-center">ID</th>
+                <th class="text-center">Paid Date</th>
+                <th class="text-center">Stu_Name</th>
+                <th class="text-center">Sub_Name</th>
+                <th class="text-center">OS Amount</th>
+            </tr>
+            </thead>
+            <tbody>
+            {{#each data.content}}
+                <tr>
+                    <td>{{no @index}}</td>
+                    <td>{{_id}}</td>
+                    <td>{{moFormat paidDate "MMM/DD/YYYY"}}</td>
+                    <td>{{_student.latinName}}</td>
+                    <td>{{_subject.name}}</td>
+                    <td align="right" class="bg-warning"
+                        style="font-weight: bold">{{numFormat osAmount "$ 0,0.00"}}</td>
+                </tr>
+            {{/each}}
+
+            <tr>
+                <td colspan="4"></td>
+                <td style="font-weight: bold">Grand Total</td>
+                <td style="font-weight: bold" align="right"
+                    class="bg-warning">{{numFormat data.osAmount "$ 0,0.00"}}</td>
+            </tr>
+            </tbody>
+        </table>
+
+        <br>
+        <table width="100%">
+            <tr>
+                <td class="text-center">Reference By</td>
+                <td class="text-right">Date:__________/__________/__________</td>
+            </tr>
+            <br>
+            <br>
+            <br>
+            <tr>
+                <td class="text-center">________________</td>
+            </tr>
+
+        </table>
+        <br>
+    </div>
+
+</template>

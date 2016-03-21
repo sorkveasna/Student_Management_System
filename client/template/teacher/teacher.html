@@ -1,0 +1,44 @@
+<!--Index-->
+<template name="teacher">
+    <p>
+        <button class="btn btn-primary fa fa-plus" id="js-insert"> Add</button>
+    </p>
+    {{> tabular table=TabularTables.Teacher class="table table-striped table-bordered table-condensed table-hover animated lightSpeedIn"}}
+</template>
+
+<!--Insert-->
+<template name="teacherInsert">
+    {{#autoForm collection="Collection.Teacher" id="teacherInsert" type="insert"}}
+        <fieldset>
+            {{> afQuickField name='name'}}
+            {{> afQuickField name='gender'}}
+            {{> afQuickField name='telephone'}}
+            {{> afQuickField name='subjects'}}
+        </fieldset>
+        <button type="submit" class="btn btn-primary fa fa-save"> Insert</button>
+        <button type="reset" class="btn btn-default fa fa-refresh"> Reset</button>
+    {{/autoForm}}
+</template>
+
+<!--Update-->
+<template name="teacherUpdate">
+    {{#if Template.subscriptionsReady}}
+        {{#autoForm collection="Collection.Teacher" doc=this id="teacherUpdate" type="update"}}
+            <fieldset>
+                {{> afQuickField name='name'}}
+                {{> afQuickField name='gender'}}
+                {{> afQuickField name='telephone'}}
+                {{> afQuickField name='subjects'}}
+
+            </fieldset>
+            <button type="submit" class="btn btn-primary fa fa-save"> Update</button>
+        {{/autoForm}}
+    {{else}}
+        {{> spinner}}
+    {{/if}}
+</template>
+
+<!--Action-->
+<template name="teacherAction">
+    {{>tabularAction}}
+</template>

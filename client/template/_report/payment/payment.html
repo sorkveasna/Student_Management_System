@@ -1,0 +1,91 @@
+<!--payment Report-->
+<template name="paymentRpt">
+    {{#autoForm schema="Schema.paymentRpt" id="paymentRpt"}}
+        <fieldset>
+            <div class="row">
+                <div class="col-md-6">
+                    {{> afQuickField name='fromDate'}}
+                </div>
+                <div class="col-md-6">
+                    {{> afQuickField name='toDate'}}
+                </div>
+            </div>
+        </fieldset>
+        <button type="submit" class="btn btn-primary fa fa-file-text"> Generate Report</button>
+    {{/autoForm}}
+</template>
+
+<!--payment Report Generator-->
+<template name="paymentRptGen">
+    <div style="width: 720px; height: auto; margin: auto; border: 1px solid darkgreen;">
+        <table width="100%">
+            <tr>
+                <th class="bg-danger">
+                    <h2 style="text-align: center">Rabbit IT Solution</h2>
+                </th>
+            </tr>
+            <tr>
+                <th class="bg-danger">
+                    <h3 style="text-align: center">Payment Report</h3>
+                </th>
+            </tr>
+        </table>
+
+        Date:
+        {{data.header.date}}
+        <table width="100%" border="1" class="table table-bordered">
+            <thead>
+            <tr class="bg-info">
+                <th class="text-center">No</th>
+                <th class="text-center">ID</th>
+                <th class="text-center">Paid Date</th>
+                <th class="text-center">Stu_Name</th>
+                <th class="text-center">Sub_Name</th>
+                <th class="text-center">Due Amount</th>
+                <th class="text-center">Paid Amount</th>
+            </tr>
+            </thead>
+            <tbody>
+            {{#each data.content}}
+                <tr>
+                    <td>{{no @index}}</td>
+                    <td>{{_id}}</td>
+                    <td>{{moFormat paidDate "MMM/DD/YYYY"}}</td>
+                    <td>{{_student.latinName}}</td>
+                    <td>{{_subject.name}}</td>
+                    <td align="right">{{numFormat dueAmount "$ 0,0.00"}}</td>
+                    <td align="right" class="bg-warning"
+                        style="font-weight: bold">{{numFormat paidAmount "$ 0,0.00"}}</td>
+                </tr>
+            {{/each}}
+
+            <tr>
+                <td colspan="4"></td>
+                <td style="font-weight: bold">Grand Total</td>
+                <td style="font-weight: bold" align="right">{{numFormat data.dueAmount "$ 0,0.00"}}</td>
+                <td style="font-weight: bold" align="right"
+                    class="bg-warning">{{numFormat data.paidAmount "$ 0,0.00"}}</td>
+            </tr>
+            </tbody>
+        </table>
+
+        <br>
+        <table width="100%">
+            <!--<tbody>-->
+            <tr>
+                <td class="text-center">Reference By</td>
+                <td class="text-right">Date:__________/__________/__________</td>
+            </tr>
+            <br>
+            <br>
+            <br>
+            <tr>
+                <td class="text-center">________________</td>
+            </tr>
+
+            <!--</tbody>-->
+        </table>
+        <br>
+    </div>
+
+</template>

@@ -1,0 +1,72 @@
+<!--subject-->
+<template name="subject">
+    <p>
+        <button class="btn btn-primary fa fa-plus" id="js-insert"> Add</button>
+    </p>
+    {{> tabular table=TabularTables.Subject class="table table-striped table-bordered table-condensed table-hover animated lightSpeedIn"}}
+</template>
+
+<template name="subjectInsert">
+    {{#autoForm collection="Collection.Subject" id="subjectInsert" type="insert"}}
+        <fieldset>
+            <div class="row">
+                <div class="col-md-4">
+                    {{> afQuickField name='name'}}
+                </div>
+                <div class="col-md-4">
+                    {{> afQuickField name='duration'}}
+                </div>
+                <div class="col-md-4">
+                    {{> afQuickField name='price'}}
+                </div>
+                <div class="col-md-12">
+                    {{> afQuickField name='des'}}
+                </div>
+            </div>
+
+        </fieldset>
+        <button type="submit" class="btn btn-primary fa fa-save"> Insert</button>
+        <button type="reset" class="btn btn-default fa fa-refresh"> Reset</button>
+    {{/autoForm}}
+</template>
+
+<!--Update-->
+<template name="subjectUpdate">
+    {{#if Template.subscriptionsReady}}
+        {{#autoForm collection="Collection.Subject" doc=this id="subjectUpdate" type="update"}}
+            <fieldset>
+                <div class="row">
+                    <div class="col-md-4">
+                        {{> afQuickField name='name'}}
+                    </div>
+                    <div class="col-md-4">
+                        {{> afQuickField name='duration'}}
+                    </div>
+                    <div class="col-md-4">
+                        {{> afQuickField name='price'}}
+                    </div>
+                    <div class="col-md-12">
+                        {{> afQuickField name='des'}}
+                    </div>
+                </div>
+            </fieldset>
+            <button type="submit" class="btn btn-primary fa fa-save"> Update</button>
+        {{/autoForm}}
+    {{else}}
+        {{> spinner}}
+    {{/if}}
+</template>
+
+<!--Action-->
+<template name="subjectAction">
+        <!--&lt;!&ndash; {{#tabularAction}}-->
+    <!--<li>-->
+    <!--<a href="" class="jsUpdate">{{fa "edit"}} Update</a>-->
+    <!--</li>-->
+    <!--<li>-->
+    <!--<a href="" class="jsRemove">{{fa "trash"}} Remove</a>-->
+    <!--</li> &ndash;&gt;-->
+{{>tabularAction}}
+    <!-- <button class="jsUpdate fa fa-edit btn btn-primary"></button> -->
+    <!-- <button class="jsRemove fa fa-trash btn btn-danger"></button> -->
+</template>
