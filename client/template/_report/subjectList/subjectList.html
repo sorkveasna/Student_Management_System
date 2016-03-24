@@ -1,0 +1,41 @@
+<!--Subject List Report Generator-->
+ <template name="subjectListRptGen">
+     <div style="width: 720px; height: auto; margin: auto; border: 1px solid darkgreen;">
+         <table width="100%">
+             <tr>
+                 <th class="bg-danger">
+                     <h2 style="text-align: center">Rabbit IT Solution</h2>
+                 </th>
+             </tr>
+             <tr>
+                 <th class="bg-danger">
+                     <h3 style="text-align: center">Subject List Report</h3>
+                 </th>
+             </tr>
+         </table>
+
+         <table width="100%" border="1" class="table table-bordered">
+             <thead>
+             <tr class="bg-info">
+                 <th class="text-center">No</th>
+                 <th class="text-center">Subject ID</th>
+                 <th class="text-center">Subject Name</th>
+                 <th class="text-center">Duration</th>
+                  <th class="text-center">Price</th>
+             </tr>
+             </thead>
+             <tbody>
+             {{#each data}}
+                 <tr>
+                     <td>{{no @index}}</td>
+                     <td>{{_id}}</td>
+                     <td>{{name}}</td>
+                     <td>{{duration}}</td>
+                     <td align="right">{{numFormat price "$ 0,0.00"}}</td>
+                 </tr>
+             {{/each}}
+             </tbody>
+        </table>
+     </div>
+
+ </template>

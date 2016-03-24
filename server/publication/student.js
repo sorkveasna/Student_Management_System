@@ -1,3 +1,4 @@
+
 Meteor.publish('student', function (id) {
     // Waiting
     Meteor._sleepForMs(1000);

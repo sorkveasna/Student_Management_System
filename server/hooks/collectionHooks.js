@@ -16,4 +16,7 @@ Collection.Register.before.insert((userId, doc) => {
 
 Collection.Payment.before.insert((userId, doc) => {
     doc._id = idGenerator.gen(Collection.Payment, 3);
-}); 
+});
+Collection.studentStatus.before.insert((userId, doc) => {
+    doc._id = idGenerator.gen(Collection.studentStatus, 3);
+});

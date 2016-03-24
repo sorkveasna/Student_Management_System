@@ -17,7 +17,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-default" href="{{pathFor 'home'}}">
-                    <!-- <img src="rabbit.png" class="sys-logo"> -->
+                    <!-- <img src="rabbit.jpg" height="46" width="46"> -->
                 </a>
             </div>
             <div id="navbar" class="collapse navbar-collapse">
@@ -61,6 +61,9 @@
                                 <li class="{{isActiveRoute name='outStandingRpt'}}">
                                     <a href="{{pathFor 'outStandingRpt'}}" style="font-size: 16px">Out Standing</a>
                                 </li>
+                                <li class="{{isActiveRoute name='subjectListRptGen'}}">
+                                    <a href="{{pathFor 'subjectListRptGen'}}" style="font-size: 16px" target="_blank">Subject List</a>
+                                </li>
                             </ul>
                         </li>
                         <!--end report-->
@@ -77,6 +80,9 @@
                                 </li>
                                 <li class="{{isActiveRoute name='teacher'}}">
                                     <a href="{{pathFor 'teacher'}}" style="font-size: 16px">Teacher</a>
+                                </li>
+                                <li class="{{isActiveRoute name='studentStatus'}}">
+                                    <a href="{{pathFor 'studentStatus'}}" style="font-size: 16px"> Student Status</a>
                                 </li>
                             </ul>
                         </li>
@@ -101,7 +107,7 @@
         <!--Breadcrumb-->
         <div class="row">
 
-            <legend style="font-size: 28px; font-weight: bold" class="animated lightSpeedIn">
+            <legend style="font-size: 28px; font-weight: bold" class="/animated lightSpeedIn">
                 {{pageHeader}}
                 {{> breadcrumb}}
             </legend>

@@ -22,3 +22,8 @@ Collection.Teacher.permit(['update', 'insert', 'remove'])
     .ifLoggedIn()
     .ifHasRole('Setting')
     .apply();
+
+Collection.studentStatus.permit(['update', 'insert', 'remove'])
+    .ifLoggedIn()
+    .ifHasRole('Setting')
+    .apply();

@@ -15,7 +15,11 @@ Template.register.events({
                 title: fa('plus', ' Register')
             })
             .maximize();
-    }
+    },
+    'click .show': function (e, t) {
+   alertify.register(fa("eye", "Register Information"), renderTemplate(Template.showRegister,
+     this));
+ }
 });
 
 //###############-insert-#####################

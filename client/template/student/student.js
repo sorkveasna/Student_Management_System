@@ -16,7 +16,7 @@ Template.student.events({
             .maximize();
     },
     'click .show': function (e, t) {
-   alertify.student(fa("eye", "Branch"), renderTemplate(Template.showStudent,
+   alertify.student(fa("eye", "Student Information"), renderTemplate(Template.showStudent,
      this));
  }
 });
