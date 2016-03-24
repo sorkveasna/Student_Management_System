@@ -23,7 +23,7 @@ Schema.studentStatus = new SimpleSchema({
                   {label: '(Select One)', value: ''},
                   {label: 'Active', value: 'Active'},
                   {label: 'Subspend', value: 'Subspend'},
-                  {label: 'Close', value: 'Close'}
+                  {label: 'Close', value: 'Close'},
                   {label: 'Cancel', value: 'Cancel'}
               ]
           }
